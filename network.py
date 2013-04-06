@@ -44,7 +44,7 @@ def init():
 
     inputPort = None
     while inputPort == None:
-        inputPort = raw_input("Enter a port to use: ")
+        inputPort = input("Enter a port to use: ")
         try:
             inputPort = int(inputPort)
             if inputPort >= i or inputPort < 1:
@@ -54,9 +54,9 @@ def init():
 
     port = ports[inputPort - 1]
     print("\nUsing port " + port + ".\n")
-    inputRate =  raw_input("Use baud rate of " + str(rate) + "? (Y/N): ")
+    inputRate =  input("Use baud rate of " + str(rate) + "? (Y/N): ")
     if inputRate.upper() != "Y":
-        newRate = raw_input("Enter new rate: ")
+        newRate = input("Enter new rate: ")
         try:
             rate = int(newRate)
         except:

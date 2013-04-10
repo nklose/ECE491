@@ -1,4 +1,6 @@
-# Compiled Object files
+
+<!-- saved from url=(0088)https://raw.github.com/nklose/ECE491/76d8c8c614e756b34e86327b52a1c813b6a4bf80/.gitignore -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;"># Compiled Object files
 *.slo
 *.lo
 *.o
@@ -9,4 +11,4 @@
 *~
 
 # Build files
-build
+build</pre></body></html>

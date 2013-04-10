@@ -28,10 +28,12 @@ class SerialListen(threading.Thread):
         self.text = "" # save text message from sender
         self.parent = parent
         self.queue = parent.queue
+        self.nodes = parent.nodes
+        self.pastNodes = [] # nodes which were detected during the last ping
         
     def run(self):
-        while self.serial != None and self.serial.isOpen():
-            c = self.serial.read(1)
+        while self.serial != None:
+            c = self.serial.read()
             self.input += c
             
             # reset buffer if a new command is sent
@@ -41,8 +43,11 @@ class SerialListen(threading.Thread):
             # end buffer if command close character is sent
             if self.input[-1:] == "}":
                 if self.input[:6] == "{NAME=":
-                    self.pinger = self.input[6:-1]
-                    self.ui.listNodes.addItem(self.pinger)
+                    pinger = self.input[6:-1]
+                    self.pinger = pinger
+                    if pinger not in self.nodes:
+                        self.nodes.append(pinger)
+                    self.update_nodes_in_range()
                 elif self.input[:6] == "{FROM=":
                     self.sender = self.input[6:-1]
                 elif self.input[:4] == "{TO=":
@@ -54,7 +59,6 @@ class SerialListen(threading.Thread):
                     if self.recipient == self.name:
                         message = "<From: " + self.sender + "> " + self.text
                         self.ui.listReceivedData.addItem(message)
-                        
                     # the recipient is another node, so relay the message
                     else:
                         #self.parent.send(self.sender, self.recipient, self.text)
@@ -62,10 +66,17 @@ class SerialListen(threading.Thread):
                         message += self.recipient + "> " + self.text
                         self.ui.listRelayedData.addItem(message)
                     
-            # take care of outgoing queue
+            # send any queued messages
             for message in self.queue:
-                self.serial.flush()
                 self.serial.write(message)
-                        
+                del message
+        
+    def update_nodes_in_range(self):
+        self.ui.listNodes.clear()
+        for node in self.pastNodes:
+            self.ui.listNodes.addItem(node)
+        self.pastNodes = self.nodes
+        self.nodes = []
+    
     def stop(self):
         self._stop.set()

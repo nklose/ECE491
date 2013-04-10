@@ -153,7 +153,15 @@ class NetworkTest(QtGui.QMainWindow):
         self.ui.listReceivedData.clear()
         self.ui.listRelayedData.clear()
         
+        # Start sending out pings
+        
         self.msg("Initialized.")
+    
+    def send_ping(self):
+        threading.Timer(5.0, self.send_ping).start()
+        self.serial.write("{NAME=" + self.name + "}")
+        
+        
     
     def select_port(self, item):
         self.msg("Selecting new port: " + str(item.text()))
@@ -164,7 +172,6 @@ class NetworkTest(QtGui.QMainWindow):
     def select_node(self, item):
         self.msg("Selecting new node: " + str(item.text()))
         self.node = str(item.text())
-        self.refresh()
         
     def select_parity(self, button):
         self.msg("Selecting new parity.")
@@ -179,8 +186,6 @@ class NetworkTest(QtGui.QMainWindow):
         else:
             selfparity = serial.PARITY_NONE
         
-        self.update_serial()
-        self.refresh()
         
     def select_stop_bits(self, button):
         self.msg("Selecting new stop bits.")
@@ -191,8 +196,6 @@ class NetworkTest(QtGui.QMainWindow):
         else:
             self.stopBits = serial.STOPBITS_TWO
             
-        self.update_serial()
-        self.refresh()
         
     def select_byte_size(self, button):
         self.msg("Selecting new byte size.")
@@ -233,7 +236,10 @@ class NetworkTest(QtGui.QMainWindow):
     # Sends a message with a specified sender and recipient
     def send(self, sender, recipient, text):
         message = "{FROM=" + sender + "}{TO=" + recipient + "}{TEXT=" + text + "}"
-        self.queue.append(message)
+        #self.queue.append(message)
+        self.serial.write(message)
+        if sender == self.name:
+            self.ui.listSentData.addItem("<To: " + recipient + "> " + text)
         
     # Prints a message to the user via the status bar.
     def msg(self, text):
@@ -263,13 +269,15 @@ class NetworkTest(QtGui.QMainWindow):
                  "Ghost", "Dasher", "Grumpy", "Hollywood", "Noodle", "Cupid",
                  "Abraham", "Prancer", "Blinky", "Bonobo", "Banana", "Cinnabon"]
                  
-        rand = random.randint(0, len(names))
+        rand = random.randint(0, len(names) - 1)
         return names[rand]
     
     def update_serial(self):
         try:
-            self.serial = serial.Serial(self.port, self.baud, self.byteSize, 
-                                        self.parity, self.stopBits)
+            #self.serial = serial.Serial(self.port, self.baud, self.byteSize, 
+            #                            self.parity, self.stopBits)
+            self.serial = serial.Serial(self.port)
+            self.send_ping()
         except Exception as e:
             self.msg("Serial already initialized, " + str(e))
            

@@ -1,613 +1,616 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1027</width>
-    <height>543</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Network Testing Application</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>191</width>
-      <height>501</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Port Selection</string>
-    </property>
-    <widget class="QListWidget" name="listPorts">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>171</width>
-       <height>471</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>USB01</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>USB02</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>USB03</string>
-      </property>
-     </item>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_2">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>10</y>
-      <width>131</width>
-      <height>501</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Network Settings</string>
-    </property>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>111</width>
-       <height>131</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Parity</string>
-     </property>
-     <widget class="QRadioButton" name="radioEven">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Even</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioOdd">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Odd</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioMark">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Mark</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioNone">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>100</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>None</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioSpace">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>80</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Space</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_4">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>160</y>
-       <width>111</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Stop Bits</string>
-     </property>
-     <widget class="QRadioButton" name="radio1">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>1</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radio15">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>1.5</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radio2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>2</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>260</y>
-       <width>111</width>
-       <height>111</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Byte Size</string>
-     </property>
-     <widget class="QRadioButton" name="radio5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>5</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radio6">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>6</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radio7">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>7</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radio8">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>80</y>
-        <width>116</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>8</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_8">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>380</y>
-       <width>111</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Baud Rate</string>
-     </property>
-     <widget class="QComboBox" name="comboBaudRate">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>19</y>
-        <width>91</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <item>
-       <property name="text">
-        <string>50</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>75</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>110</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>134</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>150</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>200</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>300</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>600</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1200</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1800</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>2400</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>4800</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>9600</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>19200</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>38400</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>57600</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>115200</string>
-       </property>
-      </item>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_10">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>440</y>
-       <width>111</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Node Name</string>
-     </property>
-     <widget class="QLineEdit" name="textName">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>91</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_6">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>10</y>
-      <width>661</width>
-      <height>501</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Network</string>
-    </property>
-    <widget class="QGroupBox" name="groupBox_7">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>161</width>
-       <height>471</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Nodes in Range</string>
-     </property>
-     <widget class="QListWidget" name="listNodes">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>141</width>
-        <height>351</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>A</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>C</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>D</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_9">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>380</y>
-        <width>141</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Send Text</string>
-      </property>
-      <widget class="QLineEdit" name="textSend">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>121</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnSend">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>50</y>
-         <width>121</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Send to Node</string>
-       </property>
-      </widget>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_11">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>20</y>
-       <width>471</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Sent Data</string>
-     </property>
-     <widget class="QListWidget" name="listSentData">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>451</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-      <item>
-       <property name="text">
-        <string>A</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>C</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>D</string>
-       </property>
-      </item>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_12">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>180</y>
-       <width>471</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Received Data</string>
-     </property>
-     <widget class="QListWidget" name="listReceivedData">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>451</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>A</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>C</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>D</string>
-       </property>
-      </item>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_13">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>340</y>
-       <width>471</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Relayed Data</string>
-     </property>
-     <widget class="QListWidget" name="listRelayedData">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>451</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>A</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>C</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>D</string>
-       </property>
-      </item>
-     </widget>
-    </widget>
-   </widget>
-  </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="inputMethodHints">
-    <set>Qt::ImhNone</set>
-   </property>
-   <property name="sizeGripEnabled">
-    <bool>false</bool>
-   </property>
-  </widget>
- </widget>
- <resources/>
- <connections/>
-</ui>
+
+<!-- saved from url=(0085)https://raw.github.com/nklose/ECE491/76d8c8c614e756b34e86327b52a1c813b6a4bf80/main.ui -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ui version="4.0"&gt;
+ &lt;class&gt;MainWindow&lt;/class&gt;
+ &lt;widget class="QMainWindow" name="MainWindow"&gt;
+  &lt;property name="geometry"&gt;
+   &lt;rect&gt;
+    &lt;x&gt;0&lt;/x&gt;
+    &lt;y&gt;0&lt;/y&gt;
+    &lt;width&gt;1027&lt;/width&gt;
+    &lt;height&gt;543&lt;/height&gt;
+   &lt;/rect&gt;
+  &lt;/property&gt;
+  &lt;property name="windowTitle"&gt;
+   &lt;string&gt;Network Testing Application&lt;/string&gt;
+  &lt;/property&gt;
+  &lt;widget class="QWidget" name="centralwidget"&gt;
+   &lt;widget class="QGroupBox" name="groupBox"&gt;
+    &lt;property name="geometry"&gt;
+     &lt;rect&gt;
+      &lt;x&gt;10&lt;/x&gt;
+      &lt;y&gt;10&lt;/y&gt;
+      &lt;width&gt;191&lt;/width&gt;
+      &lt;height&gt;501&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name="title"&gt;
+     &lt;string&gt;Port Selection&lt;/string&gt;
+    &lt;/property&gt;
+    &lt;widget class="QListWidget" name="listPorts"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;10&lt;/x&gt;
+       &lt;y&gt;20&lt;/y&gt;
+       &lt;width&gt;171&lt;/width&gt;
+       &lt;height&gt;471&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;item&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;USB01&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/item&gt;
+     &lt;item&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;USB02&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/item&gt;
+     &lt;item&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;USB03&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/item&gt;
+    &lt;/widget&gt;
+   &lt;/widget&gt;
+   &lt;widget class="QGroupBox" name="groupBox_2"&gt;
+    &lt;property name="geometry"&gt;
+     &lt;rect&gt;
+      &lt;x&gt;210&lt;/x&gt;
+      &lt;y&gt;10&lt;/y&gt;
+      &lt;width&gt;131&lt;/width&gt;
+      &lt;height&gt;501&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name="title"&gt;
+     &lt;string&gt;Network Settings&lt;/string&gt;
+    &lt;/property&gt;
+    &lt;widget class="QGroupBox" name="groupBox_3"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;10&lt;/x&gt;
+       &lt;y&gt;20&lt;/y&gt;
+       &lt;width&gt;111&lt;/width&gt;
+       &lt;height&gt;131&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Parity&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QRadioButton" name="radioEven"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;20&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;Even&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radioOdd"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;40&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;Odd&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radioMark"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;60&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;Mark&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radioNone"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;100&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;None&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radioSpace"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;80&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;Space&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+    &lt;widget class="QGroupBox" name="groupBox_4"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;10&lt;/x&gt;
+       &lt;y&gt;160&lt;/y&gt;
+       &lt;width&gt;111&lt;/width&gt;
+       &lt;height&gt;91&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Stop Bits&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QRadioButton" name="radio1"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;20&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;1&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radio15"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;40&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;1.5&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radio2"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;60&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;2&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+    &lt;widget class="QGroupBox" name="groupBox_5"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;10&lt;/x&gt;
+       &lt;y&gt;260&lt;/y&gt;
+       &lt;width&gt;111&lt;/width&gt;
+       &lt;height&gt;111&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Byte Size&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QRadioButton" name="radio5"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;20&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;5&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radio6"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;40&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;6&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radio7"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;60&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;7&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QRadioButton" name="radio8"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;80&lt;/y&gt;
+        &lt;width&gt;116&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="text"&gt;
+       &lt;string&gt;8&lt;/string&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+    &lt;widget class="QGroupBox" name="groupBox_8"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;10&lt;/x&gt;
+       &lt;y&gt;380&lt;/y&gt;
+       &lt;width&gt;111&lt;/width&gt;
+       &lt;height&gt;51&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Baud Rate&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QComboBox" name="comboBaudRate"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;19&lt;/y&gt;
+        &lt;width&gt;91&lt;/width&gt;
+        &lt;height&gt;22&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="currentIndex"&gt;
+       &lt;number&gt;0&lt;/number&gt;
+      &lt;/property&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;50&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;75&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;110&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;134&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;150&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;200&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;300&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;600&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;1200&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;1800&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;2400&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;4800&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;9600&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;19200&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;38400&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;57600&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;115200&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+    &lt;widget class="QGroupBox" name="groupBox_10"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;10&lt;/x&gt;
+       &lt;y&gt;440&lt;/y&gt;
+       &lt;width&gt;111&lt;/width&gt;
+       &lt;height&gt;51&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Node Name&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QLineEdit" name="textName"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;20&lt;/y&gt;
+        &lt;width&gt;91&lt;/width&gt;
+        &lt;height&gt;20&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+   &lt;/widget&gt;
+   &lt;widget class="QGroupBox" name="groupBox_6"&gt;
+    &lt;property name="geometry"&gt;
+     &lt;rect&gt;
+      &lt;x&gt;350&lt;/x&gt;
+      &lt;y&gt;10&lt;/y&gt;
+      &lt;width&gt;661&lt;/width&gt;
+      &lt;height&gt;501&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name="title"&gt;
+     &lt;string&gt;Network&lt;/string&gt;
+    &lt;/property&gt;
+    &lt;widget class="QGroupBox" name="groupBox_7"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;10&lt;/x&gt;
+       &lt;y&gt;20&lt;/y&gt;
+       &lt;width&gt;161&lt;/width&gt;
+       &lt;height&gt;471&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Nodes in Range&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QListWidget" name="listNodes"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;20&lt;/y&gt;
+        &lt;width&gt;141&lt;/width&gt;
+        &lt;height&gt;351&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;A&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;C&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;D&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+     &lt;/widget&gt;
+     &lt;widget class="QGroupBox" name="groupBox_9"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;380&lt;/y&gt;
+        &lt;width&gt;141&lt;/width&gt;
+        &lt;height&gt;81&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="title"&gt;
+       &lt;string&gt;Send Text&lt;/string&gt;
+      &lt;/property&gt;
+      &lt;widget class="QLineEdit" name="textSend"&gt;
+       &lt;property name="geometry"&gt;
+        &lt;rect&gt;
+         &lt;x&gt;10&lt;/x&gt;
+         &lt;y&gt;20&lt;/y&gt;
+         &lt;width&gt;121&lt;/width&gt;
+         &lt;height&gt;20&lt;/height&gt;
+        &lt;/rect&gt;
+       &lt;/property&gt;
+      &lt;/widget&gt;
+      &lt;widget class="QPushButton" name="btnSend"&gt;
+       &lt;property name="geometry"&gt;
+        &lt;rect&gt;
+         &lt;x&gt;10&lt;/x&gt;
+         &lt;y&gt;50&lt;/y&gt;
+         &lt;width&gt;121&lt;/width&gt;
+         &lt;height&gt;23&lt;/height&gt;
+        &lt;/rect&gt;
+       &lt;/property&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;Send to Node&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/widget&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+    &lt;widget class="QGroupBox" name="groupBox_11"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;180&lt;/x&gt;
+       &lt;y&gt;20&lt;/y&gt;
+       &lt;width&gt;471&lt;/width&gt;
+       &lt;height&gt;151&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Sent Data&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QListWidget" name="listSentData"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;20&lt;/y&gt;
+        &lt;width&gt;451&lt;/width&gt;
+        &lt;height&gt;121&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;property name="wordWrap"&gt;
+       &lt;bool&gt;true&lt;/bool&gt;
+      &lt;/property&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;A&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;C&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;D&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+    &lt;widget class="QGroupBox" name="groupBox_12"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;180&lt;/x&gt;
+       &lt;y&gt;180&lt;/y&gt;
+       &lt;width&gt;471&lt;/width&gt;
+       &lt;height&gt;151&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Received Data&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QListWidget" name="listReceivedData"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;20&lt;/y&gt;
+        &lt;width&gt;451&lt;/width&gt;
+        &lt;height&gt;121&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;A&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;C&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;D&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+    &lt;widget class="QGroupBox" name="groupBox_13"&gt;
+     &lt;property name="geometry"&gt;
+      &lt;rect&gt;
+       &lt;x&gt;180&lt;/x&gt;
+       &lt;y&gt;340&lt;/y&gt;
+       &lt;width&gt;471&lt;/width&gt;
+       &lt;height&gt;151&lt;/height&gt;
+      &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name="title"&gt;
+      &lt;string&gt;Relayed Data&lt;/string&gt;
+     &lt;/property&gt;
+     &lt;widget class="QListWidget" name="listRelayedData"&gt;
+      &lt;property name="geometry"&gt;
+       &lt;rect&gt;
+        &lt;x&gt;10&lt;/x&gt;
+        &lt;y&gt;20&lt;/y&gt;
+        &lt;width&gt;451&lt;/width&gt;
+        &lt;height&gt;121&lt;/height&gt;
+       &lt;/rect&gt;
+      &lt;/property&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;A&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;C&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;property name="text"&gt;
+        &lt;string&gt;D&lt;/string&gt;
+       &lt;/property&gt;
+      &lt;/item&gt;
+     &lt;/widget&gt;
+    &lt;/widget&gt;
+   &lt;/widget&gt;
+  &lt;/widget&gt;
+  &lt;widget class="QStatusBar" name="statusbar"&gt;
+   &lt;property name="inputMethodHints"&gt;
+    &lt;set&gt;Qt::ImhNone&lt;/set&gt;
+   &lt;/property&gt;
+   &lt;property name="sizeGripEnabled"&gt;
+    &lt;bool&gt;false&lt;/bool&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+ &lt;/widget&gt;
+ &lt;resources/&gt;
+ &lt;connections/&gt;
+&lt;/ui&gt;
+</pre></body></html>

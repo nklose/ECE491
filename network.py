@@ -42,6 +42,7 @@ class NetworkTest(QtGui.QMainWindow):
         self.input = "" # text input from another device
         self.nodes = [] # nodes in range of this one
         self.thread = None # thread for listening to the network
+        self.queue = [] # queue of messages to send when possible
         
         self.port = PORT
         self.baud = BAUD_RATE
@@ -92,6 +93,10 @@ class NetworkTest(QtGui.QMainWindow):
     def refresh(self):
         if self.thread != None:
             self.thread.stop()
+        if self.serial != None:
+            if self.serial.isOpen():
+                self.serial.close()
+                self.update_serial()
         self.thread = SerialListen(self)
         self.thread.start()
                 
@@ -159,6 +164,7 @@ class NetworkTest(QtGui.QMainWindow):
     def select_node(self, item):
         self.msg("Selecting new node: " + str(item.text()))
         self.node = str(item.text())
+        self.refresh()
         
     def select_parity(self, button):
         self.msg("Selecting new parity.")
@@ -194,16 +200,20 @@ class NetworkTest(QtGui.QMainWindow):
             self.byteSize = serial.FIVEBITS
         elif self.ui.radio6.isChecked():
             self.byteSize = serial.SIXBITS
-        elif self.ui == radio7.isChecked():
+        elif self.ui.radio7.isChecked():
             self.byteSize = serial.SEVENBITS
         else:
             self.byteSize = serial.EIGHTBITS
+            
+        self.refresh()
     
     def select_baud(self, baud):
         self.msg("Selecting new baud rate: " + str(baud))
         index = self.ui.comboBaudRate.findText(str(baud))
         self.baud = self.ui.comboBaudRate.itemText(index)
         self.ui.comboBaudRate.setCurrentIndex(index)
+        
+        self.refresh()
         
     def change_name(self, name):
         self.msg("Changing this node's name to " + str(name))
@@ -223,9 +233,7 @@ class NetworkTest(QtGui.QMainWindow):
     # Sends a message with a specified sender and recipient
     def send(self, sender, recipient, text):
         message = "{FROM=" + sender + "}{TO=" + recipient + "}{TEXT=" + text + "}"
-        self.serial.flush()
-        for character in message:
-            self.serial.write(character)
+        self.queue.append(message)
         
     # Prints a message to the user via the status bar.
     def msg(self, text):

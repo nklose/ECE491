@@ -27,43 +27,45 @@ class SerialListen(threading.Thread):
         self.pinger = "" # name of node having sent most recent ping
         self.text = "" # save text message from sender
         self.parent = parent
+        self.queue = parent.queue
         
     def run(self):
-        if self.serial != None:
-            while True:
+        while self.serial != None and self.serial.isOpen():
+            c = self.serial.read(1)
+            self.input += c
             
-                c = self.serial.read()
-                self.input += c
+            # reset buffer if a new command is sent
+            if self.input[-1:] == "{":
+                self.input = "{"
                 
-                # reset buffer
-                if self.input[-1:] == "{":
-                    self.input = "{"
+            # end buffer if command close character is sent
+            if self.input[-1:] == "}":
+                if self.input[:6] == "{NAME=":
+                    self.pinger = self.input[6:-1]
+                    self.ui.listNodes.addItem(self.pinger)
+                elif self.input[:6] == "{FROM=":
+                    self.sender = self.input[6:-1]
+                elif self.input[:4] == "{TO=":
+                    self.recipient = self.input[4:-1]
+                elif self.input[:6] == "{TEXT=":
+                    self.text = self.input[6:-1]
                     
-                # end buffer
-                if self.input[-1:] == "}":
-                    if self.input[:6] == "{NAME=":
-                        self.pinger = self.input[6:-1]
-                        self.ui.listNodes.addItem(self.pinger)
-                    elif self.input[:6] == "{FROM=":
-                        self.sender = self.input[6:-1]
-                    elif self.input[:4] == "{TO=":
-                        self.recipient = self.input[4:-1]
-                    elif self.input[:6] == "{TEXT=":
-                        self.text = self.input[6:-1]
+                    # the recipient is this node
+                    if self.recipient == self.name:
+                        message = "<From: " + self.sender + "> " + self.text
+                        self.ui.listReceivedData.addItem(message)
                         
-                        # the recipient is this node
-                        if self.recipient == self.name:
-                            message = "<From: " + self.sender + "> " + self.text
-                            self.ui.listReceivedData.addItem(message)
-                            
-                        # the recipient is another node, so relay the message
-                        else:
-                            #self.parent.send(self.sender, self.recipient, self.text)
-                            message = "<From: " + self.sender + "> <To: "
-                            message += self.recipient + "> " + self.text
-                            self.ui.listRelayedData.addItem(message)
-                        
-                        
+                    # the recipient is another node, so relay the message
+                    else:
+                        #self.parent.send(self.sender, self.recipient, self.text)
+                        message = "<From: " + self.sender + "> <To: "
+                        message += self.recipient + "> " + self.text
+                        self.ui.listRelayedData.addItem(message)
+                    
+            # take care of outgoing queue
+            for message in self.queue:
+                self.serial.flush()
+                self.serial.write(message)
                         
     def stop(self):
         self._stop.set()

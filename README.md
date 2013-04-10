@@ -1,6 +1,7 @@
 Network Testing Application
 ===========================
 Network Testing Application - a personal project (c) 2013 Nick Klose.
+
 Developed for Ms. Naomi Hodge (ECE 491, University of Alberta).
 
 This application was designed to provide functionality for testing 
@@ -9,6 +10,10 @@ if necessary.
 
 License
 =======
+	Network Testing Application
+	
+	(c) 2013 Nick Klose
+
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or

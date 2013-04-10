@@ -8,6 +8,35 @@ This application was designed to provide functionality for testing
 mesh networks. It allows text to be sent between nodes and relayed 
 if necessary.
 
+Required Packages
+=================
+1. PyQT. PyQT is Copyright (c) 2013, Riverbank Computing Limited. Riverbank Computing Limited is a company registered in England and Wales with company number 4314904.
+2. PySerial. PySerial is Copyright (c) 2001-2010, Chris Liechti. All rights reserved.
+
+Compatibility
+=============
+## Windows
+The application can be run by double-clicking on `network.exe` or by using the command `python network.py` if dependencies are installed.
+
+To recompile `network.exe`, use the command `python setup.py py2exe`. The `py2exe` module is required for this.
+
+Application has been tested most extensively on Windows.
+
+## Linux
+Application was built and tested using Ubuntu Linux 12.10. It can be run using the command `python network.py` if dependencies are installed.
+
+## OSX
+OSX has not been tested, but the command `python network.py` should work if all dependencies are installed.
+
+## Other
+Other operating systems are not supported, though if they have Python and the required packages installed they should work too.
+
+Known Issues
+============
+* Program can become unstable if the port is selected twice.
+* Serial parameters are not actually used to open the port.
+* Sending images is not working.
+
 License
 =======
 	Network Testing Application

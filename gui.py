@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Wed Apr 10 04:28:02 2013
+# Created: Wed Apr 10 16:15:24 2013
 #      by: PyQt4 UI code generator 4.10
 #
 # WARNING! All changes made in this file will be lost!
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         self.groupBox_7.setGeometry(QtCore.QRect(10, 20, 161, 471))
         self.groupBox_7.setObjectName(_fromUtf8("groupBox_7"))
         self.listNodes = QtGui.QListWidget(self.groupBox_7)
-        self.listNodes.setGeometry(QtCore.QRect(10, 20, 141, 351))
+        self.listNodes.setGeometry(QtCore.QRect(10, 20, 141, 291))
         self.listNodes.setObjectName(_fromUtf8("listNodes"))
         item = QtGui.QListWidgetItem()
         self.listNodes.addItem(item)
@@ -134,7 +134,7 @@ class Ui_MainWindow(object):
         item = QtGui.QListWidgetItem()
         self.listNodes.addItem(item)
         self.groupBox_9 = QtGui.QGroupBox(self.groupBox_7)
-        self.groupBox_9.setGeometry(QtCore.QRect(10, 380, 141, 81))
+        self.groupBox_9.setGeometry(QtCore.QRect(10, 320, 141, 81))
         self.groupBox_9.setObjectName(_fromUtf8("groupBox_9"))
         self.textSend = QtGui.QLineEdit(self.groupBox_9)
         self.textSend.setGeometry(QtCore.QRect(10, 20, 121, 20))
@@ -142,6 +142,12 @@ class Ui_MainWindow(object):
         self.btnSend = QtGui.QPushButton(self.groupBox_9)
         self.btnSend.setGeometry(QtCore.QRect(10, 50, 121, 23))
         self.btnSend.setObjectName(_fromUtf8("btnSend"))
+        self.groupBox_14 = QtGui.QGroupBox(self.groupBox_7)
+        self.groupBox_14.setGeometry(QtCore.QRect(10, 410, 141, 51))
+        self.groupBox_14.setObjectName(_fromUtf8("groupBox_14"))
+        self.btnSendImage = QtGui.QPushButton(self.groupBox_14)
+        self.btnSendImage.setGeometry(QtCore.QRect(10, 20, 121, 23))
+        self.btnSendImage.setObjectName(_fromUtf8("btnSendImage"))
         self.groupBox_11 = QtGui.QGroupBox(self.groupBox_6)
         self.groupBox_11.setGeometry(QtCore.QRect(180, 20, 471, 151))
         self.groupBox_11.setObjectName(_fromUtf8("groupBox_11"))
@@ -250,6 +256,8 @@ class Ui_MainWindow(object):
         self.listNodes.setSortingEnabled(__sortingEnabled)
         self.groupBox_9.setTitle(_translate("MainWindow", "Send Text", None))
         self.btnSend.setText(_translate("MainWindow", "Send to Node", None))
+        self.groupBox_14.setTitle(_translate("MainWindow", "Send Image", None))
+        self.btnSendImage.setText(_translate("MainWindow", "Select Image", None))
         self.groupBox_11.setTitle(_translate("MainWindow", "Sent Data", None))
         __sortingEnabled = self.listSentData.isSortingEnabled()
         self.listSentData.setSortingEnabled(False)

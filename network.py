@@ -18,6 +18,7 @@ import os, sys
 from PyQt4 import QtCore, QtGui
 from serial_listen import SerialListen
 from gui import Ui_MainWindow
+from PIL import Image
 
 # Default connection parameters
 PORT = None
@@ -41,6 +42,7 @@ class NetworkTest(QtGui.QMainWindow):
         self.node = None # name of node to send to
         self.input = "" # text input from another device
         self.nodes = [] # nodes in range of this one
+        self.oldNodes = []
         self.thread = None # thread for listening to the network
         self.queue = [] # queue of messages to send when possible
         
@@ -89,6 +91,7 @@ class NetworkTest(QtGui.QMainWindow):
         
         # button connections
         QtCore.QObject.connect(self.ui.btnSend, clicked, self.send_text)
+        QtCore.QObject.connect(self.ui.btnSendImage, clicked, self.send_image)
     
     def refresh(self):
         if self.thread != None:
@@ -153,16 +156,15 @@ class NetworkTest(QtGui.QMainWindow):
         self.ui.listReceivedData.clear()
         self.ui.listRelayedData.clear()
         
-        # Start sending out pings
         
         self.msg("Initialized.")
     
     def send_ping(self):
         threading.Timer(5.0, self.send_ping).start()
         self.serial.write("{NAME=" + self.name + "}")
+        self.oldNodes = self.nodes
+        self.nodes = []
         
-        
-    
     def select_port(self, item):
         self.msg("Selecting new port: " + str(item.text()))
         self.port = int(item.text()[3:])
@@ -232,7 +234,12 @@ class NetworkTest(QtGui.QMainWindow):
             self.msg("You must select a node to send this message.")
         else:
             self.msg("No text entered.")
-            
+     
+    def send_image(self):
+        image = str(QtGui.QFileDialog.getOpenFileName())
+        imageStr = Image.open(image).tostring()
+        self.serial.write(imageStr)
+     
     # Sends a message with a specified sender and recipient
     def send(self, sender, recipient, text):
         message = "{FROM=" + sender + "}{TO=" + recipient + "}{TEXT=" + text + "}"
@@ -276,6 +283,14 @@ class NetworkTest(QtGui.QMainWindow):
         try:
             #self.serial = serial.Serial(self.port, self.baud, self.byteSize, 
             #                            self.parity, self.stopBits)
+            if self.thread != None:
+                self.thread.stop()
+                self.thread = None
+            if self.serial != None:
+                if self.serial.isOpen():
+                    self.serial.close()
+                    self.serial = None
+                    
             self.serial = serial.Serial(self.port)
             self.send_ping()
         except Exception as e:

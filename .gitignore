@@ -1,0 +1,12 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.d
+*.pyc
+
+# Temporary files
+*~
+
+# Build files
+build
